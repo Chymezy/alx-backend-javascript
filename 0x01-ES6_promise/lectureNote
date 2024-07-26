@@ -90,3 +90,81 @@ javascript
       });
 
 By wrapping non-promise values in Promise.resolve(), you can ensure that all items in the array are treated uniformly by Promise.all(). This makes it easier to work with mixed types of results in asynchronous operations.
+
+
+Exactly! How you handle the result depends on the data type and structure of the resolved value. Here's a quick overview of how you might handle different types of data:
+
+    Primitive Values (String, Number, Boolean):
+        If the resolved value is a primitive type, you access it directly.
+
+    javascript
+
+const promise = Promise.resolve('Lagos');
+
+promise.then(value => {
+  console.log(value); // 'Lagos'
+});
+
+Objects (Dictionaries):
+
+    If the resolved value is an object, you access its properties using dot notation or bracket notation.
+
+javascript
+
+const promise = Promise.resolve({ city: 'Lagos', population: 1000000 });
+
+promise.then(value => {
+  console.log(value.city); // 'Lagos'
+  console.log(value['population']); // 1000000
+});
+
+Arrays:
+
+    If the resolved value is an array, you can access elements by index.
+
+javascript
+
+const promise = Promise.resolve(['Lagos', 'Abuja', 'Ibadan']);
+
+promise.then(value => {
+  console.log(value[0]); // 'Lagos'
+  console.log(value[1]); // 'Abuja'
+});
+
+Nested Structures:
+
+    For nested structures, you need to chain property access according to the structure.
+
+javascript
+
+const promise = Promise.resolve({
+  location: {
+    city: 'Lagos',
+    country: 'Nigeria'
+  },
+  population: 1000000
+});
+
+promise.then(value => {
+  console.log(value.location.city); // 'Lagos'
+  console.log(value.location.country); // 'Nigeria'
+});
+
+Handling Mixed Types:
+
+    When working with Promise.all() and mixed types, ensure that you correctly handle each type based on its structure.
+
+javascript
+
+    const promise1 = Promise.resolve('Lagos');
+    const promise2 = Promise.resolve({ city: 'Abuja' });
+    const promise3 = Promise.resolve([1, 2, 3]);
+
+    Promise.all([promise1, promise2, promise3])
+      .then(([city, cityObj, numbers]) => {
+        console.log(city); // 'Lagos'
+        console.log(cityObj.city); // 'Abuja'
+        console.log(numbers[0]); // 1
+      });
+
+In general, always consider the type of data you're working with and access it accordingly.
