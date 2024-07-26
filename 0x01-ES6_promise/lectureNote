@@ -1,0 +1,9 @@
+JavaScript Promises:
+
+    A promise takes two parameters: resolve (for success) and reject (for failure).
+
+    resolve and reject are used within the promise to signal success or failure.
+
+    The .then() method is used to handle the successful outcome of the promise.
+    
+    The .catch() method is used to handle errors or rejections.
