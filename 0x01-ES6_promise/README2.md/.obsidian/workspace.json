@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9a2a410215fecf6b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Welcome.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "9ca51da6d1537d35",
             "type": "leaf",
             "state": {
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "0adb876b210a610c",
